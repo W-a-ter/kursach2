@@ -22,6 +22,7 @@ class HH(Parser):
             vacancies = response.json()['items']
             self.__vacancies.extend(vacancies)
             self.__params['page'] += 1
+        return self.__vacancies
 
     @property
     def vacancies(self):

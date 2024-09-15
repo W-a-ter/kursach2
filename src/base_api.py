@@ -9,5 +9,6 @@ class Parser(ABC):
 
     @abstractmethod
     def load_vacancies(self, keyword):
+        """абстрактный класс для работы с API сервиса с вакансиями"""
         pass
 
