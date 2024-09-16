@@ -2,7 +2,7 @@ class Vacansies:
     result_list = []
 
     def __init__(self, name, salary, url, description):
-        """класс для работы с вакансиями"""
+        """инициализатор класса для работы с вакансиями"""
         self.name = name
         self.salary = 0
         self.validate_salary(salary)
@@ -51,13 +51,9 @@ class Vacansies:
         return cls.result_list
 
 
-
-
-
-
-
-
 if __name__ == "__main__":
-    vacancy = Vacansies("Python Developer", "100 000-150 000 руб.", "<https://hh.ru/vacancy/123456>",
+    vacancy = Vacansies("Python Developer",
+                        "100 000-150 000 руб.",
+                        "<https://hh.ru/vacancy/123456>",
                       "Требования: опыт работы от 3 лет...")
     print(vacancy.name)

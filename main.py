@@ -11,10 +11,8 @@ from src.total_result import get_top_vacancies
 # json_saver.add_vacancies(vacancy)
 # json_saver.remove_vacancies(vacancy)
 
-#Функция для взаимодействия с пользователем
-
-
 def user_interaction():
+    """функция для взаимодействия с пользователем"""
     hh_api = HH(' ')
     platforms = ["HeadHunter"]
     search_query = input("Введите поисковый запрос: ")

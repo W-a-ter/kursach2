@@ -10,10 +10,12 @@ class JsonSaver(BaseJson):
         #     self.data = json.load(file)
 
     def add_vacancies(self, vacancie):
+        """добавление вакансий в файл"""
         with open(self.path_to_file, 'r+', encoding='utf-8') as file:
             json.dump(vacancie, file, ensure_ascii=False, indent=4)
 
     def load_vacancies(self, vacancie: str):
+        """загрузка вакансий"""
         with open(self.path_to_file, 'r+', encoding='utf-8') as file:
             data = json.load(file)
             for i in data:
@@ -21,6 +23,7 @@ class JsonSaver(BaseJson):
                     print(i)
 
     def remove_vacancies(self, vacancie):
+        """удаление вакансии из файла"""
         new_dict = {
             'name': vacancie.name,
             'url': vacancie.url,
@@ -40,7 +43,11 @@ class JsonSaver(BaseJson):
 
 if __name__ == "__main__":
     # Пример работы контструктора класса с одной вакансией
-    vacancy = Vacansies("Python Developer", "<https://hh.ru/vacancy/123456>", "100 000-150 000 руб.", "Требования: опыт работы от 3 лет...")
+    vacancy = Vacansies(
+        "Python Developer",
+        "<https://hh.ru/vacancy/123456>",
+        "100 000-150 000 руб.",
+        "Требования: опыт работы от 3 лет...")
 
     # Сохранение информации о вакансиях в файл
     json_saver = JsonSaver()
