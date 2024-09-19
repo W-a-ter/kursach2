@@ -11,6 +11,7 @@ from src.total_result import get_top_vacancies
 # json_saver.add_vacancies(vacancy)
 # json_saver.remove_vacancies(vacancy)
 
+
 def user_interaction():
     """функция для взаимодействия с пользователем"""
     hh_api = HH(' ')

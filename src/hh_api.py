@@ -10,7 +10,7 @@ class HH(Parser):
     который вам необходимо реализовать
     """
 
-    def __init__(self, file_worker):
+    def __init__(self, file_worker='Data/JsonFile.json'):
         """инициализатор"""
         self.__url = 'https://api.hh.ru/vacancies'
         self.__headers = {'User-Agent': 'HH-User-Agent'}
