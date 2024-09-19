@@ -18,7 +18,7 @@ class Vacansies:
     def validate_salary(self, salary):
         """"Способ валидации зарплаты"""
         if salary == 'null':
-            self.salary = 0
+            self.salary = '0'
         else:
             self.salary = salary
 
