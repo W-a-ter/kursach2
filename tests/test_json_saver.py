@@ -14,4 +14,3 @@ def test_json_remove(test_vacansies):
     json_saver.remove_vacancies(test_vacansies)
     with open('../Data/JsonFile.json', encoding='utf-8') as file:
         assert '[]' == file.read()
-
