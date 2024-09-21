@@ -1,15 +1,7 @@
 from src.hh_api import HH
 from src.vacancies import Vacansies
 from src.Json_saver import JsonSaver
-from src.total_result import filter_vacancies
-from src.total_result import get_vacancies_by_salary
-from src.total_result import sort_vacancies
-from src.total_result import get_top_vacancies
-
-# Сохранение информации о вакансиях в файл
-# json_saver = JsonSaver()
-# json_saver.add_vacancies(vacancy)
-# json_saver.remove_vacancies(vacancy)
+from src.total_result import filter_vacancies, get_top_vacancies, get_vacancies_by_salary, sort_vacancies
 
 
 def user_interaction():
@@ -23,6 +15,18 @@ def user_interaction():
     hh_vacancies = hh_api.load_vacancies(search_query)
     vacancies_list = Vacansies.cast_to_object_list(hh_vacancies)
 
+    # Пример работы контструктора класса с одной вакансией
+    vacancy = Vacansies(
+        "Python Developer",
+        "<https://hh.ru/vacancy/123456>",
+        "100 000-150 000 руб.",
+        "Требования: опыт работы от 3 лет...")
+
+    # Сохранение информации о вакансиях в файл
+    json_saver = JsonSaver()
+    json_saver.add_vacancies(vacancy.result_list)
+    json_saver.remove_vacancies(vacancy)
+
     filtered_vacancies = filter_vacancies(vacancies_list, filter_words)
 
     ranged_vacancies = get_vacancies_by_salary(filtered_vacancies, salary_range)
@@ -30,8 +34,6 @@ def user_interaction():
     sorted_vacancies = sort_vacancies(ranged_vacancies)
     top_vacancies = get_top_vacancies(sorted_vacancies, top_n)
     print(top_vacancies)
-
-
 
 
 if __name__ == "__main__":
